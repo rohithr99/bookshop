@@ -1,0 +1,25 @@
+/* Remove the navbar's default rounded borders and increase the bottom margin */ 
+.navbar {
+    border-radius: 0;
+  }
+
+/* login form */
+
+.img_container{
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.login__button{
+  width: 100%;
+  background-color: #04AA6D;
+  cursor: pointer;
+  border: none;
+  color: white;
+}
