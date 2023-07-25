@@ -39,6 +39,7 @@ export class RegisterComponent {
         },
           result => {
             alert(result.error.message);
+            //for accessing error 404 message
           }
         )
       }

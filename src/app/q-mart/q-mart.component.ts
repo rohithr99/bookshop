@@ -1,28 +1,28 @@
-import { Component } from '@angular/core';
-import { Router,NavigationStart } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from './service/data-service.service';
+
 
 @Component({
   selector: 'app-q-mart',
   templateUrl: './q-mart.component.html',
   styleUrls: ['./q-mart.component.css']
 })
-export class QMartComponent {
+export class QMartComponent  implements OnInit{
+
+  productsData: any;
+
+  constructor(private ds: DataServiceService){}
 
 
-  showHead: boolean = false;
+  ngOnInit(): void {
+    this.ds.getAllProduct().subscribe((products: any) => {
+      // console.log(products.message);
 
-  constructor(private router:Router){
-    // on route change to '/login', set the variable showHead to false
-    router.events.forEach((event) => {
-      if (event instanceof NavigationStart) {
-        if (event['url'] == 'qMart/register') {
-          this.showHead = false;
-        } else {
-          // console.log("NU")
-          this.showHead = true;
-        }
-      }
-    });
+      this.productsData = products.message;
+      console.log(this.productsData);
+      
+    })
   }
 
+  
 }

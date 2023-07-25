@@ -3,9 +3,12 @@
   <div class="container">
     <a class="navbar-brand" href="#"><i class="fa-solid fa-book fa-shake fa-xl me-2" style="color: #ffffff;"></i> <strong>BOOKSHOP</strong></a>
 
-    <div>
-      <button type="button" class="btn btn-success mx-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Login</button>
+    <div  *ngIf="!isLoggedIn()">
+      <!-- <a href="qMart/login" class="btn btn-success mx-1">Login</a> -->
+      <button class="btn btn-success mx-1" (click)="loggedIn()">Login</button>
+    </div>
+    <div *ngIf="isLoggedIn()">
+      <button class="btn" style="background-color: #d35266;color:white;" (click)="logout()">Logout</button>
     </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -13,32 +16,17 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- search button -->
-    <!-- <div class="mx-auto my-3 d-lg-none d-sm-block d-xs-block">
-      <div class="input-group">
-        <span class="border-warning input-group-text bg-warning text-white"><i class="fa-solid fa-magnifying-glass"></i></span>
-        <input type="text" class="form-control border-warning" style="color:#7a7a7a">
-        <button class="btn btn-warning text-white">Search</button>
-      </div>
-    </div> -->
 
 
     <div class=" collapse navbar-collapse" id="navbarNavDropdown">
-      <!-- <div class="ms-auto d-none d-lg-block">
-        <div class="input-group">
-          <span class="border-danger input-group-text bg-danger text-white"><i class="fa-solid fa-magnifying-glass"></i></span>
-          <input type="text" class="form-control border-danger" style="color:#7a7a7a">
-          <button class="btn btn-danger text-white">Search</button>
-        </div>
-      </div> 
- -->
+
 
     <ul class="navbar-nav ms-auto ">
       <li class="nav-item">
-        <a class="nav-link mx-2 text-uppercase" href="#"><i class="fa-solid fa-cart-shopping me-1"></i> Cart</a>
+        <a class="nav-link mx-2 text-uppercase" href="qMart/addcart"><i class="fa-solid fa-cart-shopping me-1"></i> Cart</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link mx-2 text-uppercase" href="#"><i class="fa-solid fa-circle-user me-1"></i> Account</a>
+        <a class="nav-link mx-2 text-uppercase" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-circle-user me-1"></i>{{accname}}</a>
       </li>
     </ul>
   </div>
@@ -47,38 +35,30 @@
 
 
 
+
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white">
+
+
+          <div class="modal-body text-center">
+            <h3 style="color: #d35266;">Account Details</h3>
+              <img src="https://i.postimg.cc/x1C569Mv/icon-5359553-960-720.png" alt="" width="150px">
+          </div>
+          <div class="p-3">
+              <h5>Username: <span class="spanText ms-3"> {{accname}} </span></h5>
+              <hr class="modalhr">
+              <h5>Email : <span class="spanText ms-3"> {{email}} </span></h5>
+              <hr class="modalhr">
+              <h5>Phone: <span class="spanText ms-3"> {{phone}} </span></h5>
+              <hr class="modalhr">
+              <div class="text-end">
+                  <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: #d35266;">Close</button>
+              </div>
+          </div>
       </div>
-      <div class="modal-body">
-        <div class="img__container text-center">
-          <img src="https://i.postimg.cc/Kc6FGC9d/img-avatar2.png" alt="" class="avatar">
-        </div>
-        <div class="content w-100">
-          <form>
-            <div class="container">
-              <label for="uname"><b>Username</b></label>
-              <br>
-              <input type="text" placeholder="Enter Username" name="uname" required class="w-100">
-              <br><br>
-              <label for="psw"><b>Password</b></label>
-              <br>
-              <input type="password" placeholder="Enter Password" name="psw" required class="w-100">
-              <br><br>
-              <button type="submit" class="login__button">Login</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger me-auto" data-bs-dismiss="modal">Close</button>
-        <span class="psw">New User?<a href="qMart/register" class="ms-1">Register here</a></span>
-      </div>
-    </div>
   </div>
 </div>
+
