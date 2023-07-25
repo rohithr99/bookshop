@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit{
   phone: any;
 
   //button toggler
-  loginButtonShow: Boolean = true;
 
   constructor(private router:Router){}
 
@@ -49,7 +48,6 @@ export class HeaderComponent implements OnInit{
     localStorage.removeItem('currentUser');
     localStorage.removeItem('currentEmail');
     localStorage.removeItem('currentPhone');
-    this.loginButtonShow = true;
     window.location.reload();
   }
 

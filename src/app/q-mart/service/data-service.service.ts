@@ -44,4 +44,7 @@ export class DataServiceService {
     return this.http.get('http://localhost:8000/qMart/products/'+id)
   }
 
+  //api to add to cart
+  
+
 }
