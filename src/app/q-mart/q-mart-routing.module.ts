@@ -11,7 +11,7 @@ const routes: Routes = [{ path: '', component: QMartComponent },
                         { path: 'register', component: RegisterComponent },
                         { path: 'login', component: LoginComponent },
                         { path: 'addcart',component: AddcartComponent },
-                        { path: 'view/:id', component: ViewComponent }
+                        { path: 'view/:sl', component: ViewComponent }
 
   ];
 

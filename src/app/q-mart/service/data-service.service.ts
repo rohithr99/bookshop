@@ -40,11 +40,11 @@ export class DataServiceService {
   }
 
   //api to get single product 
-  getProduct(id: any) {
-    return this.http.get('http://localhost:8000/qMart/products/'+id)
+  getProduct(sl: any) {
+    return this.http.get('http://localhost:8000/qMart/products/'+sl)
   }
 
   //api to add to cart
-  
+
 
 }

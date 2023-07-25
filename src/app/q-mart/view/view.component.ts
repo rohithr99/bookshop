@@ -9,21 +9,25 @@ import { DataServiceService } from '../service/data-service.service';
 })
 export class ViewComponent implements OnInit {
   
-  id: any;
+  sl: any;
+  item: any;
 
   constructor(private ar: ActivatedRoute,private ds:DataServiceService){}
   
   ngOnInit(): void {
     this.ar.params.subscribe((data: any) => {
-      this.id = data.id;
-      console.log(this.id);
+      this.sl = data.sl;
+      console.log(this.sl);
       
     })
 
     //api call
 
-    this.ds.getProduct(this.id).subscribe((result: any) => {
-      console.log(result);
+    this.ds.getProduct(this.sl).subscribe((result: any) => {
+      // console.log(result.data);
+      this.item = result.data;
+      console.log(this.item);
+      
     })
 
   }
