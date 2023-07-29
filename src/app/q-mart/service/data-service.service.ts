@@ -7,7 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataServiceService {
 
-  search = new BehaviorSubject("");
+  //object of behaviour subject
+  searchBs = new BehaviorSubject("");
 
   constructor(private http: HttpClient) { }
 

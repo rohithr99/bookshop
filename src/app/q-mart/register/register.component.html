@@ -14,7 +14,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw" style="color:#d35266;"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input formControlName="username" type="text" id="form3Example1c" class="form-control" name="uname" />
+                        <input formControlName="username" type="text" id="form3Example1c" class="form-control bg-secondary border-0 text-white" name="uname" />
                         <label class="form-label" for="form3Example1c" style="color:#d35266;">Your Name</label>
 
                         <div *ngIf="(this.registerForm.get('username')?.errors) && (this.registerForm.get('username')?.touched)">
@@ -27,7 +27,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw" style="color:#d35266;"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input formControlName="email" type="email" id="form3Example3c" class="form-control"  name="mail"/>
+                        <input formControlName="email" type="email" id="form3Example3c" class="form-control bg-secondary border-0"  name="mail"/>
                         <label class="form-label" for="form3Example3c" style="color:#d35266;">Your Email</label>
 
                         <!-- <div *ngIf="(this.registerForm.get('email')?.errors) && (this.registerForm.get('email')?.touched)">
@@ -40,7 +40,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-mobile-retro fa-lg me-3 fa-fw" style="color:#d35266;"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input formControlName="phone" type="text" id="form3Example4c" class="form-control" name="phoneno"/>
+                        <input formControlName="phone" type="text" id="form3Example4c" class="form-control bg-secondary border-0" name="phoneno"/>
                         <label class="form-label" for="form3Example4c" style="color:#d35266;">Phone Number</label>
 
                         <div *ngIf="(this.registerForm.get('phone')?.errors) && (this.registerForm.get('phone')?.touched)">
@@ -53,7 +53,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw" style="color:#d35266;"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input formControlName="passwd" type="password" id="form3Example4c" class="form-control" name="pass"/>
+                        <input formControlName="passwd" type="password" id="form3Example4c" class="form-control bg-secondary border-0" name="pass"/>
                         <label class="form-label" for="form3Example4c" style="color:#d35266;">Password</label>
 
                         <div *ngIf="(this.registerForm.get('passwd')?.errors) && (this.registerForm.get('passwd')?.touched)">
@@ -66,7 +66,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-key fa-lg me-3 fa-fw" style="color:#d35266;"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input formControlName="confirmPass" type="password" id="form3Example4cd" class="form-control" name="conpass"/>
+                        <input formControlName="confirmPass" type="password" id="form3Example4cd" class="form-control bg-secondary border-0" name="conpass"/>
                         <label class="form-label" for="form3Example4cd" style="color:#d35266;">Repeat your password</label>
 
                         <div *ngIf="(this.registerForm.get('confirmPass')?.errors) && (this.registerForm.get('confirmPass')?.touched)">

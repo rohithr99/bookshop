@@ -9,7 +9,10 @@ import { DataServiceService } from './service/data-service.service';
 })
 export class QMartComponent  implements OnInit{
 
-  productsData: any;
+  productsData: any = [];
+  categoryArray: any = [];
+  searchString: any = '';
+  searchTerm: any;
 
   constructor(private ds: DataServiceService){}
 
@@ -21,8 +24,28 @@ export class QMartComponent  implements OnInit{
       this.productsData = products.message;
       console.log(this.productsData);
       
+      this.categoryArray = this.productsData;
+
+      this.ds.searchBs.subscribe((value: any) => {
+        console.log(value);
+        
+        this.searchString = value;
+      })
     })
   }
 
+  filterProduct(categoryId: any){
+    this.categoryArray = this.productsData.filter((item:any) => 
+      item.category == categoryId || categoryId == "" );
+      console.log(this.categoryArray);
+      
+  }
+
+  search(event: any){
+    // console.log(event.target.value);
+    this.searchTerm = event.target.value;
+    console.log(this.searchTerm);
+    this.ds.searchBs.next(this.searchTerm);
+  }
   
 }

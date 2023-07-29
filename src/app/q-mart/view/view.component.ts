@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataServiceService } from '../service/data-service.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class ViewComponent implements OnInit {
   sl: any;
   item: any;
 
-  constructor(private ar: ActivatedRoute,private ds:DataServiceService){}
+  constructor(private ar: ActivatedRoute,private ds:DataServiceService,private router:Router){}
   
   ngOnInit(): void {
     this.ar.params.subscribe((data: any) => {
@@ -27,9 +27,11 @@ export class ViewComponent implements OnInit {
       // console.log(result.data);
       this.item = result.data;
       console.log(this.item);
-      
     })
+  }
 
+  back(){
+    this.router.navigateByUrl('');
   }
 
 }

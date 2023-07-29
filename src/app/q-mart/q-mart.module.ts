@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AddcartComponent } from './addcart/addcart.component';
 import { ViewComponent } from './view/view.component';
+import { SearchPipe } from './productPipe/search.pipe';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ViewComponent } from './view/view.component';
     RegisterComponent,
     LoginComponent,
     AddcartComponent,
-    ViewComponent
+    ViewComponent,
+    SearchPipe,
   ],
   imports: [
     CommonModule,

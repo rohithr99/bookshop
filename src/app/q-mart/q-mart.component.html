@@ -13,18 +13,18 @@
                 <div class="btn-group filter__button me-1">
                     <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        All
+                        filter
                     </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Fiction</a></li>
-                        <li><a class="dropdown-item" href="#">Non Fiction</a></li>
-                        <li><a class="dropdown-item" href="#">Academic</a></li>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><button (click)="filterProduct('')" class="dropdown-item">All</button></li>
+                        <li><button (click)="filterProduct('fictionbooks')" class="dropdown-item">Fiction</button></li>
+                        <li><button (click)="filterProduct('nonfictionbooks')" class="dropdown-item">Non Fiction</button></li>
+                        <li><button (click)="filterProduct('academicbooks')" class="dropdown-item">Academic</button></li>
                     </ul>
                 </div>
                 <div class="me-5 search__div">
-                    <input id="search__box" type="text" placeholder=" search book" name="searchBox">
-                    <button id="search__button" type="button" class="btn btn-dark ms-1"><i class="fa fa-search"></i></button>
-                </div>
+                    <!-- keyup event is used to get the data as a stream -->
+                    <input id="search__box" type="text" placeholder="Search book..." name="searchBox" [(ngModel)]="searchTerm" (keyup)="search($event)">                </div>
             </div>
 
         </div>
@@ -32,9 +32,12 @@
 </section>
 
 
-<div class="mb-5">
+<!-- <div class="mb-5">
     <div class="featured__div">
-        <h4 class="text-center my-3">FEATURED BOOK</h4>
+
+        <img src="https://i.postimg.cc/hPM1YVxM/user-sign-icon-person-symbol-human-avatar-vector-12693195.jpg" alt="">
+ -->
+        <!-- <h4 class="text-center my-3">FEATURED BOOK</h4>
         <div class="main__div">
             <div class="image__div me-4">
                 <img src="https://i.postimg.cc/NfQ2gxjF/siddhartha.jpg" alt="" height="250">
@@ -51,9 +54,38 @@
                     <button class="btn m-1" style="background-color: #d35266; color:white;">Add to Cart</button>
                 </div>
             </div>
-        </div>
+        </div> -->
+    <!-- </div>
+</div> -->
+
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
     </div>
-</div>
+    <div class="carousel-inner text-center" style="height:400px;">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="https://i.postimg.cc/hPM1YVxM/user-sign-icon-person-symbol-human-avatar-vector-12693195.jpg" style="height:400px;min-width: 50%;" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000" style="height:300px;">
+        <img src="https://i.postimg.cc/Z5H3nmjc/a4ca7f4e-97b9-4d8c-bd41-108a2828a991-1024.jpg" style="height:400px;min-width: 50%;" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
 
 <hr>
 
@@ -61,7 +93,7 @@
 <section>
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <div class="col mb-5" *ngFor="let i of productsData">
+            <div class="col mb-5" *ngFor="let i of categoryArray | search:searchString:'name' ">
                 <div class="card h-100">
                     <!-- Product image-->
                     <img class="card-img-top" src={{i.image}} alt="..." />
