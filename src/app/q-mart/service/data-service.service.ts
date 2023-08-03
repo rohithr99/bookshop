@@ -42,10 +42,16 @@ export class DataServiceService {
 
   //api to get single product 
   getProduct(sl: any) {
-    return this.http.get('http://localhost:8000/qMart/products/'+sl)
+    return this.http.get('http://localhost:8000/qMart/products/'+sl);
   }
 
-  //api to add to cart
-
+  //api for add to cart
+  addToCart(sl: any,phone: any){
+    var cartData = {
+      sl,
+      phone
+    }
+    return this.http.post('http://localhost:8000/qMart/cart',cartData);
+  }
 
 }

@@ -11,13 +11,13 @@
                 <p class="lead">{{item.description}}</p>
                 <ul>
                     <li>Author: <span style="font-weight: 800;color:#d35266;font-size: 1.5rem;"> {{item.author}}</span></li>
-                    <li>Publisher: <span> {{item.publisher}}</span></li>
+                    <li>Publisher: <span>{{item.publisher}}</span></li>
                     <li>Language: <span>{{item.language}}</span></li>
                     <li>Published: <span>{{item.published}}</span> </li>
                 </ul>
                 <h5>Rating: <span style="font-weight: 800; color:#d35266">{{item.rating}}</span>/5</h5>
                 <div class="d-flex">
-                    <button class="btn flex-shrink-0" type="button" style="background-color: #d35266;">
+                    <button class="btn flex-shrink-0" type="button" style="background-color: #d35266;" (click)="addCart()">
                         <i class="bi-cart-fill me-1"></i>
                         Add to cart
                     </button>
