@@ -12,6 +12,9 @@ export class ViewComponent implements OnInit {
   sl: any;
   item: any = {};
   phone: any;
+  image: any;
+  name: any;
+  price: any;
 
   constructor(private ar: ActivatedRoute,private ds:DataServiceService,private router:Router){}
   
@@ -34,8 +37,11 @@ export class ViewComponent implements OnInit {
   addCart(){
     if(localStorage.getItem("currentPhone")){
       this.phone = localStorage.getItem("currentPhone");
+      this.image = this.item.image;
+      this.name = this.item.name;
+      this.price = this.item.price;
       
-      this.ds.addToCart(this.sl,this.phone).subscribe((result: any) => {
+      this.ds.addToCart(this.sl,this.phone,this.image,this.name,this.price).subscribe((result: any) => {
         alert("product added to cart");
         console.log(result);   
       })

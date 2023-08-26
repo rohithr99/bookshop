@@ -46,12 +46,25 @@ export class DataServiceService {
   }
 
   //api for add to cart
-  addToCart(sl: any,phone: any){
+  addToCart(sl: any,phone: any,image: any,name: any, price: any){
     var cartData = {
       sl,
-      phone
+      phone,
+      image,
+      name,
+      price
     }
     return this.http.post('http://localhost:8000/qMart/cart',cartData);
+  }
+
+  //to display the cart data
+  displayCart(phone: any){
+    return this.http.get('http://localhost:8000/qMart/cartPage/'+phone);
+  }
+  
+  //to delete an item from cart
+  removeFromCart(sl : any){
+    return this.http.delete('http://localhost:8000/qMart/deleteCart/'+sl);
   }
 
 }
